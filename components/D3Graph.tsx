@@ -111,7 +111,7 @@ const D3Graph = () => {
 
       // npm 生态
       { id: "包管理", group: 5, size: 12, desc: "依赖管理" },
-      { id: "私有仓库", group: 5, size: 12, desc: "企业级npm仓库" },
+      { id: "私有仓库", group: 5, size: 12, desc: "内部npm包仓库" },
 
       // 构建工具生态
       { id: "Webpack", group: 5, size: 14, desc: "模块打包工具" },
@@ -271,17 +271,18 @@ const D3Graph = () => {
 
     const tooltip = d3.select(tooltipRef.current);
 
-    node.on("mouseover", function (this: any, event: any, d: any) {
-      d3.select(this)
-        .select("circle")
-        .attr("stroke-width", 4)
-        .style("filter", "brightness(1.2)");
-      tooltip
-        .style("opacity", 1)
-        .html(`<strong>${d.id}</strong><br/>${d.desc}`)
-        .style("left", event.pageX + 15 + "px")
-        .style("top", event.pageY - 10 + "px");
-    })
+    node
+      .on("mouseover", function (this: any, event: any, d: any) {
+        d3.select(this)
+          .select("circle")
+          .attr("stroke-width", 4)
+          .style("filter", "brightness(1.2)");
+        tooltip
+          .style("opacity", 1)
+          .html(`<strong>${d.id}</strong><br/>${d.desc}`)
+          .style("left", event.pageX + 15 + "px")
+          .style("top", event.pageY - 10 + "px");
+      })
       .on("mouseout", function (this: any) {
         d3.select(this)
           .select("circle")

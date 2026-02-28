@@ -5,7 +5,9 @@ import dynamic from "next/dynamic";
 
 const D3Graph = dynamic(() => import("@/components/D3Graph"), {
   ssr: false,
-  loading: () => <div className="flex items-center justify-center h-full">加载中...</div>
+  loading: () => (
+    <div className="flex items-center justify-center h-full">加载中...</div>
+  ),
 });
 
 const ChevronLeft = ({
@@ -85,7 +87,7 @@ const slides: Slide[] = [
     id: "1",
     type: "title",
     title: "2025年度工作总结报告",
-    subtitle: "全栈工程师 · 芦志帅",
+    subtitle: "全栈工程师",
     backgroundColor: "from-blue-600 to-purple-700",
     textColor: "text-white",
   },
@@ -107,12 +109,9 @@ const slides: Slide[] = [
     title: "01 核心工作内容",
     subtitle: "主要项目与职责",
     content: [
-      "CMS项目 3.4.1 - 前端框架设计与开发",
-      "Intext富文本编辑器 - v1.3 & v1.4版本开发",
-      "UI项目 - 公用评论组件开发",
-      "NodeService项目 - BFF层框架设计与实现",
-      "Intable项目 - 客户问题修复与技术支持",
-      "构建公司npm私有仓库",
+      "前端框架设计与开发",
+      "富文本编辑器 - v2版本开发",
+      "构建内部私有仓库",
     ],
     backgroundColor: "from-blue-50 to-indigo-50",
   },
@@ -124,7 +123,7 @@ const slides: Slide[] = [
     backgroundColor: "from-gray-50 to-blue-50",
     cards: [
       {
-        title: "CMS项目 3.4.1",
+        title: "内容管理系统",
         description: [
           "Vue重构前端页面",
           "Vue + PHP新架构",
@@ -134,9 +133,9 @@ const slides: Slide[] = [
         color: "from-blue-500 to-blue-600",
       },
       {
-        title: "Intext编辑器",
+        title: "富文本编辑器",
         description: [
-          "v1.3 & v1.4版本",
+          "多版本迭代交付",
           "序列/修订/评论功能",
           "IME输入法兼容",
           "React技术栈",
@@ -144,12 +143,12 @@ const slides: Slide[] = [
         color: "from-purple-500 to-purple-600",
       },
       {
-        title: "UI评论组件",
+        title: "公共评论组件",
         description: ["模块化注册", "智能定位", "回复@mention", "Vue组件开发"],
         color: "from-pink-500 to-pink-600",
       },
       {
-        title: "NodeService",
+        title: "BFF中间层服务",
         description: [
           "NestJS BFF层",
           "协同编辑服务",
@@ -159,7 +158,7 @@ const slides: Slide[] = [
         color: "from-cyan-500 to-cyan-600",
       },
       {
-        title: "Intable支持",
+        title: "表格产品支持",
         description: [
           "紧急Bug修复",
           "客户问题响应",
@@ -169,7 +168,7 @@ const slides: Slide[] = [
         color: "from-green-500 to-green-600",
       },
       {
-        title: "npm私有仓库",
+        title: "私有包仓库",
         description: [
           "构建私有仓库",
           "版本规范管理",
@@ -317,7 +316,9 @@ export default function Home() {
                   {slide.title}
                 </h2>
                 {slide.subtitle && (
-                  <p className={`text-lg md:text-xl mt-4 ${textClass} opacity-70`}>
+                  <p
+                    className={`text-lg md:text-xl mt-4 ${textClass} opacity-70`}
+                  >
                     {slide.subtitle}
                   </p>
                 )}
@@ -424,12 +425,17 @@ export default function Home() {
                   {slide.title}
                 </h2>
                 {slide.subtitle && (
-                  <p className={`text-sm md:text-base mt-1 ${textClass} opacity-70`}>
+                  <p
+                    className={`text-sm md:text-base mt-1 ${textClass} opacity-70`}
+                  >
                     {slide.subtitle}
                   </p>
                 )}
               </div>
-              <div className="flex-1 relative w-full overflow-hidden" id="d3-graph-container">
+              <div
+                className="flex-1 relative w-full overflow-hidden"
+                id="d3-graph-container"
+              >
                 <D3Graph />
               </div>
             </div>
