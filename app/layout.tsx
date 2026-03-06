@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "在线PPT演示系统",
-  description: "专业的在线PPT演示平台，支持年会报告、简历展示等多种场景",
+  title: "Tiptap 技术分享 | 下一代富文本编辑器框架",
+  description: "深入介绍 Tiptap 富文本编辑器框架：无头设计、ProseMirror 底层、扩展系统、协同编辑与生态系统",
 };
 
 export default function RootLayout({
